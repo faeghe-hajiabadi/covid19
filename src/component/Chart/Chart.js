@@ -5,7 +5,9 @@ import {
   VictoryLine,
   VictoryContainer,
   VictoryLabel,
-  VictoryTheme
+  VictoryTheme,
+  VictoryTooltip,
+  VictoryVoronoiContainer
 } from "victory";
 import "./chart.scss";
 
@@ -14,10 +16,6 @@ export default function Chart(props) {
   const countryCode = Object.keys(props.chartData);
   const confirmedValue = Object.values(props.chartData);
   let bigSumOfConfirmed = 0;
-
-  for (let i = 0; i < countryCode.length; i++) {
-    //  for(let j = ; j)
-  }
 
   let dates = confirmedValue[0];
   if (!dates) {
@@ -28,7 +26,6 @@ export default function Chart(props) {
 
   for (let d = 0; d < datesFinal.length; d++) {
     for (let v = 0; v < confirmedValue.length; v++) {
-      // console.log('PROPS',props.chartData[countryCode[v]][datesFinal[d]])
       sumOfVal += props.chartData[countryCode[v]][datesFinal[d]];
     }
     let subString = datesFinal[d].substr(5, 5);
@@ -37,6 +34,7 @@ export default function Chart(props) {
       y: sumOfVal
     };
     data.push(SubData);
+    sumOfVal = 0;
   }
 
   const countryData = props.chartData["US"];
@@ -48,23 +46,35 @@ export default function Chart(props) {
 
   return (
     <div className="test">
-              <div className='title'>Number Of Confirmed All Over The World</div>
+      <div className="title">Number Of Confirmed All Over The World</div>
 
       <VictoryChart
         theme={VictoryTheme.material}
         containerComponent={<VictoryContainer responsive={true} />}
         padding={40}
         animate={{ duration: 2000 }}
-        width={400}
+        width={600}
         height={200}
-     
+        containerComponent={
+          <VictoryVoronoiContainer
+            voronoiDimension="x"
+            labels={({ datum }) => `y: ${datum.y}`}
+            labelComponent={
+              <VictoryTooltip
+                cornerRadius={0}
+                size="8"
+                flyoutStyle={{ fill: "white" }}
+              />
+            }
+          />
+        }
       >
         <VictoryAxis
           dependentAxis
           style={{
             axis: { stroke: "#756f6a" },
-            axisLabel: { fontSize: 8, padding: 30 },
-            ticks: { stroke: "grey", size: 5 },
+            axisLabel: { fontSize: 5, padding: 30 },
+            ticks: { stroke: "grey", size: 3 },
             tickLabels: { fontSize: 5, padding: 5 }
           }}
           standalone={false}

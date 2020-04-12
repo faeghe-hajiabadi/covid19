@@ -5,6 +5,7 @@ import Map from "./component/Map/Map";
 import { url } from "./api/utilities";
 import fetchData from "./api/fetchData";
 import Chart from "./component/Chart/Chart";
+import TableCo from "./component/Table/Table";
 
 const mapData = {};
 const chartData = {};
@@ -36,11 +37,12 @@ function App() {
         chartData[item.country_code] = item.timelines.confirmed.timeline;
       });
   }
-
+  console.log("from server", mapData);
   return (
     <div>
       <Map handleClick={handleClick} mapData={mapData} />
       <Chart chartData={chartData} />
+      <TableCo tableData={location} />
     </div>
   );
 }
