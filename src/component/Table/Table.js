@@ -13,30 +13,16 @@ const useStyles = makeStyles({
     minWidth: 650
   }
 });
-function createData(name, confirmed, death) {
-  return { name, confirmed, death };
-}
 
-const rows = [
-  //   createData("Frozen yoghurt", 159, 6.0, 24, 4.0),
-];
+let rows = [];
 
 export default function TableCo(props) {
   const classes = useStyles();
-  console.log("props in table", props);
-
   if (!props) {
     return null;
   }
-  {
-    props.tableData &&
-      props.tableData.locations &&
-      props.tableData.locations.forEach(item => {
-        rows.push(
-          createData(item.country, item.latest.confirmed, item.latest.deaths)
-        );
-      });
-  }
+  rows = props.tableData;
+
   return (
     <div>
       <TableContainer component={Paper}>
@@ -52,10 +38,10 @@ export default function TableCo(props) {
             {rows.map(row => (
               <TableRow key={row.name}>
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {row.country}
                 </TableCell>
                 <TableCell align="left">{row.confirmed}</TableCell>
-                <TableCell align="left">{row.death}</TableCell>
+                <TableCell align="left">{row.deaths}</TableCell>
               </TableRow>
             ))}
           </TableBody>

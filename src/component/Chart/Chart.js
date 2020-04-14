@@ -15,7 +15,6 @@ export default function Chart(props) {
   const data = [];
   const countryCode = Object.keys(props.chartData);
   const confirmedValue = Object.values(props.chartData);
-  let bigSumOfConfirmed = 0;
 
   let dates = confirmedValue[0];
   if (!dates) {

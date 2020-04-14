@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { VectorMap } from "react-jvectormap";
 
 export default function Map(props) {
-  // const mapNumber =
   return (
     <div>
       <VectorMap
