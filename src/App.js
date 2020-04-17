@@ -6,9 +6,11 @@ import { url } from "./api/utilities";
 import fetchData from "./api/fetchData";
 import Chart from "./component/Chart/Chart";
 import TableCo from "./component/Table/Table";
+import Footer from './component/Footer/Footer';
+
+
 
 const handleClick = (e, countryCode) => {
-  console.log(countryCode);
 };
 
 function App() {
@@ -32,6 +34,7 @@ function App() {
         <Map handleClick={handleClick} mapData={mapData} />
         <Chart chartData={chartData} />
         <TableCo tableData={tableData} />
+        {/* <Footer /> */}
       </div>
     );
   } else {

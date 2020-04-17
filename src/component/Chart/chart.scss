@@ -13,3 +13,15 @@
     text-align: center;
     padding-top: 20;
 }
+.formControl{
+    max-width: 100;
+}
+.filterButtons{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    width: 30%;
+
+}

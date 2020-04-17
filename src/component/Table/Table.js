@@ -24,11 +24,16 @@ export default function TableCo(props) {
   rows = props.tableData;
 
   return (
-    <div>
+    <div style={{ overflow: "auto",height: '550px',width: '100%',textAlign:'center',margin:'20px' }}>
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
           <TableHead>
-            <TableRow>
+            <TableRow
+              style={{
+                backgroundColor: "#f5f5f5",
+                height: "35px"
+              }}
+            >
               <TableCell>Country Name</TableCell>
               <TableCell align="left">Confirmed</TableCell>
               <TableCell align="left">Death</TableCell>
