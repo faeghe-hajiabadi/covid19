@@ -9,19 +9,44 @@
 // .test{
 //     // background-color: green;
 // }
-.title{
-    text-align: center;
-    padding-top: 20;
-}
+
 .formControl{
     max-width: 100;
 }
-.filterButtons{
+.filterButtons-container{
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: space-evenly;
-    flex-direction: row;
+    flex-direction: column;
     width: 30%;
+    height: 200px;
+    background-color: white;
+    border-radius: 3px;
+    margin-left: 20px;
+    margin-top: 20px;
 
+}
+.filterButton-title{
+    display: flex;
+    width: 100%;
+    margin-left: 10%;
+
+}
+.filterButons{
+display: flex;
+width: 90%;
+flex-direction: column;
+
+}
+.filterAllBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.filterOneBtn{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

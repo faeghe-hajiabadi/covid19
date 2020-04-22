@@ -1,16 +1,17 @@
 import React from "react";
 import { VectorMap } from "react-jvectormap";
+import "./map.scss";
 
 export default function Map(props) {
   return (
-    <div>
+    <div className="map-container">
       <VectorMap
         map={"world_mill"}
         backgroundColor="transparent" //change it to ocean blue: #0077be
         zoomOnScroll={false}
         containerStyle={{
           width: "100%",
-          height: "520px"
+          height: "530px"
         }}
         onRegionClick={props.handleClick} //gets the country code
         containerClassName="map"
@@ -52,6 +53,7 @@ export default function Map(props) {
           ]
         }}
       />
+      <div className="title">Number Of Confirmed Cases All Over The World</div>
     </div>
   );
 }

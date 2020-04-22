@@ -6,12 +6,20 @@ import { url } from "./api/utilities";
 import fetchData from "./api/fetchData";
 import Chart from "./component/Chart/Chart";
 import TableCo from "./component/Table/Table";
-import Footer from './component/Footer/Footer';
+import Footer from "./component/Footer/Footer";
+import { makeStyles } from "@material-ui/core/styles";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
+const useStyles = makeStyles(theme => ({
+  root: {
+    display: "flex",
+    "& > * + *": {
+      marginLeft: theme.spacing(2)
+    }
+  }
+}));
 
-
-const handleClick = (e, countryCode) => {
-};
+const handleClick = (e, countryCode) => {};
 
 function App() {
   const [location, setLocation] = useState();
@@ -30,7 +38,7 @@ function App() {
 
   if (location) {
     return (
-      <div>
+      <div className="app-container">
         <Map handleClick={handleClick} mapData={mapData} />
         <Chart chartData={chartData} />
         <TableCo tableData={tableData} />
@@ -38,7 +46,13 @@ function App() {
       </div>
     );
   } else {
-    return <div>loading ... </div>;
+    return(
+      <div className='loading-container'>
+      <CircularProgress size={50} />
+
+    </div> 
+    );
+    
   }
 }
 

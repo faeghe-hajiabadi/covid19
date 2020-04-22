@@ -85,7 +85,7 @@ function convertChartDataToGeneralChartData(chartData) {
     });
     // if(dayIndex < dateList.length)
   }
-  chartHeight = generalChartData[dateList.length-1].y * .00015
+  chartHeight = generalChartData[dateList.length - 1].y * 0.00015;
   return generalChartData;
 }
 function convertChartDataToSingleCountryData(countryCode, chartData) {
@@ -114,14 +114,12 @@ const INIT_STATE = {
 };
 let chartHeight = 300;
 
-
 export default function Chart(props) {
   const theme = useTheme();
   const classes = useStyles();
   const [data, setdata] = useState(INIT_STATE);
 
   useEffect(() => {
-    console.log("props", props);
     if (!props) {
       return;
     }
@@ -152,62 +150,79 @@ export default function Chart(props) {
     });
   };
 
-  console.log("data before render", data.generalChartData);
-  
   return (
     <div className="test">
-      <div className="title">Number Of Confirmed All Over The World</div>
-      <div className="filterButtons">
-        <div>
-          <Button
-            color="primary"
-            variant="contained"
-            onClick={setdataToGeneral}
-          >
-            All{" "}
-          </Button>
+      <div className="filterButtons-container">
+        <div className="filterButton-title">
+          <div>Confirmed Cases Per Day Chart</div>
         </div>
-        <div>
-          <FormControl className={classes.formControl}>
-            <InputLabel id="demo-mutiple-name-label">Name</InputLabel>
-            <Select
-              labelId="demo-mutiple-name-label"
-              id="demo-mutiple-name"
-              value={data.selectedCountry}
-              onChange={handleChange}
-              input={<Input />}
-              MenuProps={MenuProps}
+        <div className="filterButons">
+          <div className="filterAllBtn">
+            <div>show all countries</div>
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={setdataToGeneral}
             >
-              {Object.keys(props.chartData).map(name => (
-                <MenuItem
-                  key={name}
-                  value={name}
-                  // style={getStyles(name, personName, theme)}
+              All{" "}
+            </Button>
+          </div>
+
+          <div className="filterOneBtn">
+            <div className="filterOneTitle">select just one country</div>
+            <div>
+              <FormControl className={classes.formControl}>
+                <InputLabel id="demo-mutiple-name-label">Name</InputLabel>
+                <Select
+                  labelId="demo-mutiple-name-label"
+                  id="demo-mutiple-name"
+                  value={data.selectedCountry}
+                  onChange={handleChange}
+                  input={<Input />}
+                  MenuProps={MenuProps}
                 >
-                  {name}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+                  {Object.keys(props.chartData).map(name => (
+                    <MenuItem
+                      key={name}
+                      value={name}
+                      // style={getStyles(name, personName, theme)}
+                    >
+                      {name}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </div>
+          </div>
         </div>
       </div>
 
       <VictoryChart
         theme={VictoryTheme.material}
         containerComponent={<VictoryContainer responsive={true} />}
-        padding={40}
+        // padding={40}
         animate={{ duration: 2000 }}
-        width={600}
+        width={700}
         height={chartHeight}
         containerComponent={
           <VictoryVoronoiContainer
             voronoiDimension="x"
-            labels={({ datum }) => `y: ${datum.y}`}
+            labels={({ datum }) => `for day: ${datum.x}
+             confirmed number: ${datum.y}`}
             labelComponent={
               <VictoryTooltip
-                cornerRadius={0}
-                size="8"
-                flyoutStyle={{ fill: "white" }}
+                flyoutStyle={{
+                  stroke: "none",
+                  fill: "white"
+                }}
+                style={{ fontSize: 6, fill: "black", backgroundColor: "white" }}
+                cornerRadius={2}
+                dy={0}
+                size="6"
+                flyoutHeight={30}
+                flyoutWidth={80}
+                pointerWidth={10}
+                centerOffset={{ x: 25 }}
               />
             }
           />
@@ -216,10 +231,11 @@ export default function Chart(props) {
         <VictoryAxis
           dependentAxis
           style={{
-            axis: { stroke: "#756f6a" },
-            axisLabel: { fontSize: 5, padding: 30 },
-            ticks: { stroke: "grey", size: 3 },
-            tickLabels: { fontSize: 5, padding: 5 }
+            axis: { stroke: "#F0F3F8" },
+            axisLabel: { fontSize: 5 },
+            ticks: { stroke: "#C0C5D6", size: 3 },
+            tickLabels: { fontSize: 5 },
+            grid: { stroke: "#DFE0E9" }
           }}
           standalone={false}
         />
@@ -227,7 +243,7 @@ export default function Chart(props) {
         <VictoryAxis
           label="Confirmed number / Date"
           style={{
-            axis: { stroke: "#756f6a" },
+            axis: { stroke: "#C0C5D6" },
             axisLabel: { fontSize: 5, padding: 30 },
             ticks: { stroke: "grey", size: 5 },
             tickLabels: { fontSize: 5, padding: 10, angle: 90 }
@@ -235,11 +251,16 @@ export default function Chart(props) {
           axisLabelComponent={<VictoryLabel />}
         />
         <VictoryLine
+          interpolation="natural"
           data={
             data.selectedCountry
               ? data.singleCountryChartData
               : data.generalChartData
           }
+          style={{
+            data: { stroke: "#6571C9", strokeWidth: 1, strokeLinecap: "round" },
+            parent: { border: "1px solid #ccc" }
+          }}
         />
       </VictoryChart>
     </div>

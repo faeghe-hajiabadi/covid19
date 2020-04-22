@@ -11,6 +11,13 @@ import Paper from "@material-ui/core/Paper";
 const useStyles = makeStyles({
   table: {
     minWidth: 650
+  },
+  head: {
+    backgroundColor: "#6092F7",
+    color: "white"
+  },
+  body: {
+    fontSize: 14
   }
 });
 
@@ -24,10 +31,18 @@ export default function TableCo(props) {
   rows = props.tableData;
 
   return (
-    <div style={{ overflow: "auto",height: '550px',width: '100%',textAlign:'center',margin:'20px' }}>
+    <div
+      style={{
+        overflowX: "auto",
+        height: "550px",
+        width: "90%",
+        textAlign: "center",
+        margin: "auto"
+      }}
+    >
       <TableContainer component={Paper}>
         <Table className={classes.table} aria-label="simple table">
-          <TableHead>
+          <TableHead className={classes.head}>
             <TableRow
               style={{
                 backgroundColor: "#f5f5f5",
