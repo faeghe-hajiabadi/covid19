@@ -6,6 +6,7 @@ import { url } from "./api/utilities";
 import fetchData from "./api/fetchData";
 import Chart from "./component/Chart/Chart";
 import TableCo from "./component/Table/Table";
+import Related from './component/Related/Related';
 import Footer from "./component/Footer/Footer";
 import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
@@ -42,7 +43,9 @@ function App() {
         <Map handleClick={handleClick} mapData={mapData} />
         <Chart chartData={chartData} />
         <TableCo tableData={tableData} />
-        {/* <Footer /> */}
+        <Related />
+        <div className='app-endPart'></div>
+
       </div>
     );
   } else {

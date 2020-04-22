@@ -1,0 +1,45 @@
+.relatedParent{
+    margin-top: 5%;
+    margin-left: 5%;
+}
+.related-box{
+    display: flex;
+
+}
+
+
+.relatedItemParent{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin: 5% 1% 0% 1%;
+    width: 30%;
+    background-color: white;
+    border-radius: 5;
+    height: 250px;
+    color: "#34374C";
+
+}
+.relatedItemName{
+    font-size: 18px;
+    font-weight: 700;
+    padding: 10% 0 2% 3%;
+}
+.relatedItemsDes{
+    font-size: 14px;
+    color: '#9297B6';
+    padding: 3% 0 2% 3%;
+
+}
+.relatedItemImg{
+    text-align: center;
+}
+.relatedItemLink{
+  
+        color: '#61D16B';
+        font-size: 14px;
+        font-weight: 500;
+        margin-bottom: 3%;    
+        margin-top: 2%;
+
+}

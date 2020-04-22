@@ -52,3 +52,10 @@
   margin-top: 50%;
 
 }
+.app-endPart{
+  height: 20px;
+}
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  /* font-size: 14px; */
+}
