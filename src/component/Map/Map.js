@@ -11,7 +11,7 @@ export default function Map(props) {
         zoomOnScroll={false}
         containerStyle={{
           width: "100%",
-          height: "530px"
+          height: "560px"
         }}
         onRegionClick={props.handleClick} //gets the country code
         containerClassName="map"
@@ -53,7 +53,7 @@ export default function Map(props) {
           ]
         }}
       />
-      <div className="title">Number Of Confirmed Cases All Over The World</div>
+      {/* <div className="title">Number Of Confirmed Cases All Over The World</div> */}
     </div>
   );
 }

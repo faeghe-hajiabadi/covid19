@@ -17,6 +17,7 @@ import Select from "@material-ui/core/Select";
 import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import TopRate from "../TopRate/TopRate";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -115,6 +116,7 @@ const INIT_STATE = {
 let chartHeight = 300;
 
 export default function Chart(props) {
+  console.log("props>>>",props)
   const theme = useTheme();
   const classes = useStyles();
   const [data, setdata] = useState(INIT_STATE);
@@ -152,6 +154,8 @@ export default function Chart(props) {
 
   return (
     <div className="test">
+            <TopRate topRate={props.topRate} />              
+
       <div className="filterButtons-container">
         <div className="filterButton-title">
           <div>Confirmed Cases Per Day Chart</div>
@@ -196,9 +200,9 @@ export default function Chart(props) {
           </div>
         </div>
       </div>
-
       <VictoryChart
         theme={VictoryTheme.material}
+        minDomain={{ y: 1000 }}
         containerComponent={<VictoryContainer responsive={true} />}
         // padding={40}
         animate={{ duration: 2000 }}
@@ -234,7 +238,7 @@ export default function Chart(props) {
             axis: { stroke: "#F0F3F8" },
             axisLabel: { fontSize: 5 },
             ticks: { stroke: "#C0C5D6", size: 3 },
-            tickLabels: { fontSize: 5 },
+            tickLabels: { fontSize: 5,stroke:'989EBB' },
             grid: { stroke: "#DFE0E9" }
           }}
           standalone={false}

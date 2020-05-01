@@ -1,17 +1,32 @@
 async function fetchData(url) {
   const res = await fetch(url); //here we just connect to server
   const resJson = await res.json(); // read body response in asynch way
-
+  console.log("from server", resJson);
   const mapData = {};
   const chartData = {};
   const tableData = [];
+  let topRate = [];
 
-  resJson.locations.forEach(item => {
+  resJson.locations.forEach((item) => {
     fillMapData(mapData, item);
     fillChartData(chartData, item);
     fillTableData(tableData, item);
   });
-  return { mapData, chartData, tableData };
+  fillTopRateData(tableData, topRate);
+  return { mapData, chartData, tableData, topRate };
+}
+
+function fillTopRateData(tableData, topRate) {
+  let sortedLocations = tableData.sort(function (a, b) {
+    return b.confirmed - a.confirmed;
+  });
+
+  topRate.push(
+    sortedLocations[0],
+    sortedLocations[1],
+    sortedLocations[2],
+    sortedLocations[3],
+  );
 }
 
 function fillMapData(mapData, item) {
@@ -45,13 +60,15 @@ function mergeTableData(firstTableDataItem, secondTableDataItem) {
   firstTableDataItem.deaths += secondTableDataItem.deaths;
   firstTableDataItem.confirmed += secondTableDataItem.confirmed;
 }
+
 function fillTableData(tableData, item) {
   const result = search(tableData, item);
   if (result != -1) {
     mergeTableData(tableData[result], {
       country: item.country,
       confirmed: item.latest.confirmed,
-      deaths: item.latest.deaths
+      deaths: item.latest.deaths,
+      timelines: item.timelines.confirmed.timeline,
     });
   } else {
     push(tableData, item);
@@ -62,7 +79,8 @@ function push(tableData, item) {
   tableData.push({
     country: item.country,
     confirmed: item.latest.confirmed,
-    deaths: item.latest.deaths
+    deaths: item.latest.deaths,
+    timelines: item.timelines.confirmed.timeline,
   });
 }
 
