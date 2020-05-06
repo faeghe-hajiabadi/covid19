@@ -45,10 +45,14 @@ function App() {
   if (location) {
     return (
       <div className="app-container">
+         <TopRate topRate={topRate} />              
+
         <Map handleClick={handleClick} mapData={mapData} />
-        <div className='divider'></div>
+        <div className="app-endPart"></div>
         <Chart chartData={chartData} topRate={topRate} />
+        <div className="app-endPart"></div>
         <TableCo tableData={tableData} />
+        <div className="app-endPart"></div>
         <Related />
         <div className="app-endPart"></div>
       </div>

@@ -13,7 +13,7 @@ const useStyles = makeStyles({
     minWidth: 650
   },
   head: {
-    backgroundColor: "#6092F7",
+    backgroundColor: "red",
     color: "white"
   },
   body: {
@@ -35,7 +35,7 @@ export default function TableCo(props) {
       style={{
         overflowX: "auto",
         height: "550px",
-        width: "90%",
+        width: "95%",
         textAlign: "center",
         margin: "auto"
       }}
@@ -45,7 +45,7 @@ export default function TableCo(props) {
           <TableHead className={classes.head}>
             <TableRow
               style={{
-                backgroundColor: "#f5f5f5",
+                backgroundColor: "#6B75CA",
                 height: "35px"
               }}
             >

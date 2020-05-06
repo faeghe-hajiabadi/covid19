@@ -48,14 +48,7 @@ const MenuProps = {
   }
 };
 
-function getStyles(name, personName, theme) {
-  return {
-    fontWeight:
-      personName.indexOf(name) === -1
-        ? theme.typography.fontWeightRegular
-        : theme.typography.fontWeightMedium
-  };
-}
+
 function convertChartDataToGeneralChartData(chartData) {
   var generalChartData = [];
 
@@ -116,7 +109,6 @@ const INIT_STATE = {
 let chartHeight = 300;
 
 export default function Chart(props) {
-  console.log("props>>>",props)
   const theme = useTheme();
   const classes = useStyles();
   const [data, setdata] = useState(INIT_STATE);
@@ -154,7 +146,6 @@ export default function Chart(props) {
 
   return (
     <div className="test">
-            <TopRate topRate={props.topRate} />              
 
       <div className="filterButtons-container">
         <div className="filterButton-title">
@@ -202,12 +193,11 @@ export default function Chart(props) {
       </div>
       <VictoryChart
         theme={VictoryTheme.material}
-        minDomain={{ y: 1000 }}
         containerComponent={<VictoryContainer responsive={true} />}
         // padding={40}
         animate={{ duration: 2000 }}
         width={700}
-        height={chartHeight}
+        height={300}
         containerComponent={
           <VictoryVoronoiContainer
             voronoiDimension="x"
