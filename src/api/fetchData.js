@@ -1,7 +1,6 @@
 async function fetchData(url) {
   const res = await fetch(url); //here we just connect to server
   const resJson = await res.json(); // read body response in asynch way
-  console.log("from server", resJson);
   const mapData = {};
   const chartData = {};
   const tableData = [];
@@ -38,13 +37,13 @@ function fillMapData(mapData, item) {
 }
 
 function fillChartData(chartData, item) {
-  if (chartData[item.country_code]) {
+  if (chartData[item.country]) {
     mergeTimeLines(
-      chartData[item.country_code],
+      chartData[item.country],
       item.timelines.confirmed.timeline
     );
   } else {
-    chartData[item.country_code] = item.timelines.confirmed.timeline;
+    chartData[item.country] = item.timelines.confirmed.timeline;
   }
 }
 

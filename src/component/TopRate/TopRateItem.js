@@ -5,6 +5,7 @@ import downArrow from "../../img/downArrow.png";
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 import AnimateHeight from "react-animate-height";
+// import { AnimateHeight, AnimateHeightContainer } from "react-anim-kit";
 
 import {
   VictoryAxis,
@@ -15,17 +16,19 @@ import {
 } from "victory";
 
 export default function TopRateItem(props) {
-  console.log("this is props of Item", props);
   const { item, progress, isCollapse, data } = props;
-  const heightBox = isCollapse ? "auto" : 0;
+  const heightBoxOpen = isCollapse ? "auto" : 0;
+  const heightBoxClosed = isCollapse ? 0 : "auto";
 
-  console.log("this is props of item", props.data);
   let progressClass = progress < 0 ? "greenProgress" : "redProgress";
   let arrowSrc = progress < 0 ? downArrow : upArrow;
 
   return (
     <>
-      {!isCollapse && (
+      <AnimateHeight
+        duration={500}
+        height={heightBoxClosed} // see props documentation below
+      >
         <div className="topRateItemContainerCollapse">
           <div className="topRateConfirmed">{item.confirmed}</div>
           <div className="topRateCountry">{item.country}</div>
@@ -34,11 +37,11 @@ export default function TopRateItem(props) {
             {Math.abs(progress)}%
           </div>
         </div>
-      )}
+      </AnimateHeight>
 
       <AnimateHeight
         duration={500}
-        height={heightBox} // see props documentation below
+        height={heightBoxOpen} // see props documentation below
       >
         <div className="topRateItemContainerExpand">
           <div className="topRateConfirmedExpand">{item.confirmed}</div>

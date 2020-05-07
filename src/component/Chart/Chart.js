@@ -150,6 +150,7 @@ export default function Chart(props) {
       <div className="filterButtons-container">
         <div className="filterButton-title">
           <div>Confirmed Cases Per Day Chart</div>
+      
         </div>
         <div className="filterButons">
           <div className="filterAllBtn">
@@ -196,7 +197,7 @@ export default function Chart(props) {
         containerComponent={<VictoryContainer responsive={true} />}
         // padding={40}
         animate={{ duration: 2000 }}
-        width={700}
+        width={400}
         height={300}
         containerComponent={
           <VictoryVoronoiContainer
@@ -240,7 +241,7 @@ export default function Chart(props) {
             axis: { stroke: "#C0C5D6" },
             axisLabel: { fontSize: 5, padding: 30 },
             ticks: { stroke: "grey", size: 5 },
-            tickLabels: { fontSize: 5, padding: 10, angle: 90 }
+            tickLabels: { fontSize: 3, padding: 10, angle: 90 }
           }}
           axisLabelComponent={<VictoryLabel />}
         />

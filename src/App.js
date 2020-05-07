@@ -49,9 +49,11 @@ function App() {
 
         <Map handleClick={handleClick} mapData={mapData} />
         <div className="app-endPart"></div>
-        <Chart chartData={chartData} topRate={topRate} />
-        <div className="app-endPart"></div>
-        <TableCo tableData={tableData} />
+        <div className='chartAndTableParent'>
+        <Chart  chartData={chartData} topRate={topRate} />
+        <TableCo  tableData={tableData} />
+        </div>
+     
         <div className="app-endPart"></div>
         <Related />
         <div className="app-endPart"></div>

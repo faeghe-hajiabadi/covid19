@@ -7,17 +7,22 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
+import './table.scss'
+
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 650
+    minWidth: 550,
+    fontSize:20,
   },
   head: {
     backgroundColor: "red",
-    color: "white"
+    color: "white",
+
   },
   body: {
-    fontSize: 14
+    fontSize: 14,
+    width: 50
   }
 });
 
@@ -31,22 +36,26 @@ export default function TableCo(props) {
   rows = props.tableData;
 
   return (
-    <div
+    <div className='tableContainer'>
+        <div
+      
       style={{
         overflowX: "auto",
-        height: "550px",
-        width: "95%",
+        maxHeight: "858px",
+        width: "100%",
         textAlign: "center",
+        fontFamily:'Arial',
         margin: "auto"
       }}
     >
       <TableContainer component={Paper}>
-        <Table className={classes.table} aria-label="simple table">
+        <Table stickyHeader className={classes.table} aria-label="simple table">
           <TableHead className={classes.head}>
             <TableRow
               style={{
                 backgroundColor: "#6B75CA",
-                height: "35px"
+                height: "35px",
+                color:'white',
               }}
             >
               <TableCell>Country Name</TableCell>
@@ -68,5 +77,7 @@ export default function TableCo(props) {
         </Table>
       </TableContainer>
     </div>
+    </div>
+  
   );
 }

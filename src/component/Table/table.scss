@@ -1,6 +1,8 @@
 .tableContainer{
-    width: 100%;
+    width: 40%;
+    background-color: white;
+    border-radius: 20px;
     overflowX: auto;
-    height: 300;
+    max-height: 858px;
     flexGrow: 1;
 }
