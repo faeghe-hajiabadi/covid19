@@ -16,8 +16,7 @@ import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
-import TopRate from "../TopRate/TopRate";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   formControl: {
@@ -79,7 +78,7 @@ function convertChartDataToGeneralChartData(chartData) {
     });
     // if(dayIndex < dateList.length)
   }
-  chartHeight = generalChartData[dateList.length - 1].y * 0.00015;
+ 
   return generalChartData;
 }
 function convertChartDataToSingleCountryData(countryCode, chartData) {
@@ -106,10 +105,8 @@ const INIT_STATE = {
   singleCountryChartData: [],
   selectedCountry: null
 };
-let chartHeight = 300;
 
 export default function Chart(props) {
-  const theme = useTheme();
   const classes = useStyles();
   const [data, setdata] = useState(INIT_STATE);
 
@@ -134,7 +131,6 @@ export default function Chart(props) {
         props.chartData
       )
     });
-    // convertChartDataToSingleCountryData(event.target, props.chartData);
   };
   const setdataToGeneral = () => {
     setdata({
@@ -181,7 +177,6 @@ export default function Chart(props) {
                     <MenuItem
                       key={name}
                       value={name}
-                      // style={getStyles(name, personName, theme)}
                     >
                       {name}
                     </MenuItem>
@@ -195,7 +190,6 @@ export default function Chart(props) {
       <VictoryChart
         theme={VictoryTheme.material}
         containerComponent={<VictoryContainer responsive={true} />}
-        // padding={40}
         animate={{ duration: 2000 }}
         width={400}
         height={300}

@@ -46,11 +46,33 @@
   background-color: #F0F3F8;
 }
 .loading-container{
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50%;
-
+  height: 100%; */
+  /* margin-top: 20%;  */
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.loading{
+  position: fixed;
+  z-index: 999;
+  height: 2em;
+  width: 2em;
+  overflow: visible;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
 }
 .app-endPart{
   height: 20px;

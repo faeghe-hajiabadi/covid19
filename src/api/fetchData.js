@@ -62,7 +62,7 @@ function mergeTableData(firstTableDataItem, secondTableDataItem) {
 
 function fillTableData(tableData, item) {
   const result = search(tableData, item);
-  if (result != -1) {
+  if (result !== -1) {
     mergeTableData(tableData[result], {
       country: item.country,
       confirmed: item.latest.confirmed,
@@ -85,7 +85,7 @@ function push(tableData, item) {
 
 function search(tableData, item) {
   for (let i = 0; i < tableData.length; i++) {
-    if (tableData[i].country == item.country) {
+    if (tableData[i].country === item.country) {
       return i;
     }
   }

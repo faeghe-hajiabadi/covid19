@@ -7,23 +7,23 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import './table.scss'
-
+import "./table.scss";
 
 const useStyles = makeStyles({
   table: {
     minWidth: 550,
-    fontSize:20,
+    fontSize: 20,
   },
   head: {
-    backgroundColor: "red",
-    color: "white",
-
+    backgroundColor: "#fff",
+    position: "sticky",
+    top: 0,
+    zIndex: 10,
   },
   body: {
     fontSize: 14,
-    width: 50
-  }
+    width: 50,
+  },
 });
 
 let rows = [];
@@ -36,48 +36,51 @@ export default function TableCo(props) {
   rows = props.tableData;
 
   return (
-    <div className='tableContainer'>
-        <div
-      
-      style={{
-        overflowX: "auto",
-        maxHeight: "858px",
-        width: "100%",
-        textAlign: "center",
-        fontFamily:'Arial',
-        margin: "auto"
-      }}
-    >
-      <TableContainer component={Paper}>
-        <Table stickyHeader className={classes.table} aria-label="simple table">
-          <TableHead className={classes.head}>
-            <TableRow
-              style={{
-                backgroundColor: "#6B75CA",
-                height: "35px",
-                color:'white',
-              }}
-            >
-              <TableCell>Country Name</TableCell>
-              <TableCell align="left">Confirmed</TableCell>
-              <TableCell align="left">Death</TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map(row => (
-              <TableRow key={row.name}>
-                <TableCell component="th" scope="row">
-                  {row.country}
+    <div className="tableContainer">
+      <div
+        style={{
+          overflow: "auto",
+          maxHeight: "858px",
+          width: "100%",
+          textAlign: "center",
+          fontFamily: "Arial",
+          margin: "auto",
+        }}
+      >
+        <TableContainer component={Paper}>
+          <Table
+            stickyHeader
+            aria-label="sticky table"
+            className={classes.table}
+          >
+            <TableHead>
+              <TableRow
+                style={{
+                  height: "35px",
+                  color: "white",
+                }}
+              >
+                <TableCell style={{ minWidth: 170 }}>
+                  Country Name
                 </TableCell>
-                <TableCell align="left">{row.confirmed}</TableCell>
-                <TableCell align="left">{row.deaths}</TableCell>
+                <TableCell style={{ minWidth: 170 }}  align="left">Confirmed</TableCell>
+                <TableCell style={{ minWidth: 170 }} align="left">Death</TableCell>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+            </TableHead>
+            <TableBody>
+              {rows.map((row) => (
+                <TableRow key={row.name}>
+                  <TableCell component="th" scope="row">
+                    {row.country}
+                  </TableCell>
+                  <TableCell align="left">{row.confirmed}</TableCell>
+                  <TableCell align="left">{row.deaths}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </div>
     </div>
-    </div>
-  
   );
 }

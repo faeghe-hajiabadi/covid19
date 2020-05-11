@@ -7,21 +7,11 @@ import fetchData from "./api/fetchData";
 import Chart from "./component/Chart/Chart";
 import TableCo from "./component/Table/Table";
 import Related from "./component/Related/Related";
-import Footer from "./component/Footer/Footer";
-import { makeStyles } from "@material-ui/core/styles";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TopRate from "./component/TopRate/TopRate";
 
 
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    "& > * + *": {
-      marginLeft: theme.spacing(2),
-    },
-  },
-}));
 
 const handleClick = (e, countryCode) => {};
 
@@ -44,6 +34,7 @@ function App() {
 
   if (location) {
     return (
+ 
       <div className="app-container">
          <TopRate topRate={topRate} />              
 
@@ -63,7 +54,7 @@ function App() {
   } else {
     return (
       <div className="loading-container">
-        <CircularProgress size={50} />
+        <CircularProgress  size={50} />
       </div>
     );
   }

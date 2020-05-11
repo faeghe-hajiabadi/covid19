@@ -32,7 +32,7 @@ export default function Map(props) {
           },
           selectedHover: {}
         }}
-        regionsSelectable={true}
+        regionsSelectable={false}
         onRegionTipShow={(e, el, code) => {
           const data = props.mapData[code];
           return el.html(

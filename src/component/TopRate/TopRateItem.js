@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import "./topRate.scss";
 import upArrow from "../../img/upArrow.png";
 import downArrow from "../../img/downArrow.png";
-// import { TransitionGroup, CSSTransition } from "react-transition-group";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import AnimateHeight from "react-animate-height";
-// import { AnimateHeight, AnimateHeightContainer } from "react-anim-kit";
 
 import {
   VictoryAxis,
@@ -20,8 +17,22 @@ export default function TopRateItem(props) {
   const heightBoxOpen = isCollapse ? "auto" : 0;
   const heightBoxClosed = isCollapse ? 0 : "auto";
 
-  let progressClass = progress < 0 ? "greenProgress" : "redProgress";
-  let arrowSrc = progress < 0 ? downArrow : upArrow;
+  let progressClass = "";
+  let arrowSrc = '';
+  if (progress < 0) {
+    progressClass = "greenProgress";
+    arrowSrc = downArrow;
+
+  } else if (progress > 0) {
+    progressClass = "redProgress";
+    arrowSrc = upArrow;
+
+  } else {
+    progressClass = "zeroProgress";
+
+  }
+
+  
 
   return (
     <>
@@ -33,7 +44,10 @@ export default function TopRateItem(props) {
           <div className="topRateConfirmed">{item.confirmed}</div>
           <div className="topRateCountry">{item.country}</div>
           <div className={progressClass}>
-            <img width="15" height="15" src={arrowSrc}></img>{" "}
+            {arrowSrc !== '' &&
+             <img width="15" height="15" src={arrowSrc}></img>
+            }
+           
             {Math.abs(progress)}%
           </div>
         </div>

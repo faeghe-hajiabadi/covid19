@@ -16,7 +16,7 @@ export default function TopRate(props) {
     let datesLenght = dates.length;
     let firstItem = item.timelines[dates[datesLenght - 2]];
     let secondItem = item.timelines[dates[datesLenght - 1]];
-    let isCollapse = index == hoverIndex ? true : false;
+    let isCollapse = index === hoverIndex ? true : false;
     let progress = Math.round(((firstItem - secondItem) / secondItem)*100);
     data = [];
     for (let i = datesLenght - 8; i < datesLenght - 1; i++) {
