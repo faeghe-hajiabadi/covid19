@@ -10,20 +10,9 @@ import {
   VictoryVoronoiContainer,
 } from "victory";
 import "./chart.scss";
-import Button from "@material-ui/core/Button";
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import Select from "@material-ui/core/Select";
-import Input from "@material-ui/core/Input";
-import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
-import { Autocomplete } from '@material-ui/lab';
-import TextField from '@material-ui/core/TextField';
-;
-
-
-
-
+import { Autocomplete } from "@material-ui/lab";
+import TextField from "@material-ui/core/TextField";
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -81,13 +70,11 @@ function convertChartDataToGeneralChartData(chartData) {
       x: subString,
       y: totalConfirmedValue,
     });
-    // if(dayIndex < dateList.length)
   }
 
   return generalChartData;
 }
 function convertChartDataToSingleCountryData(countryCode, chartData) {
-  console.log("this is convert function",countryCode,chartData)
   let singleChartData = [];
 
   if (!countryCode || !chartData) {
@@ -103,7 +90,6 @@ function convertChartDataToSingleCountryData(countryCode, chartData) {
     };
     singleChartData.push(SubData);
   }
-  console.log("singlechart data",singleChartData)
   return singleChartData;
 }
 const INIT_STATE = {
@@ -128,10 +114,9 @@ export default function Chart(props) {
   }, []);
 
   const handleChange = (newValue) => {
-    console.log("here is handle change",newValue)
     setdata({
       ...data,
-      selectedCountry:  newValue,
+      selectedCountry: newValue,
       singleCountryChartData: convertChartDataToSingleCountryData(
         newValue,
         props.chartData
@@ -146,10 +131,6 @@ export default function Chart(props) {
     });
   };
 
-  console.log(
-    "this is data",data
-  )
-// let options = Object.keys(props.chartData);
   return (
     <div className="test">
       <div className="filterButtons-container">
@@ -157,39 +138,18 @@ export default function Chart(props) {
           <div>Confirmed Cases Per Day Chart</div>
         </div>
         <div className="filterButons">
-     
-
           <div className="filterOneBtn">
             <div className="filterOneTitle">select just one country</div>
             <div>
               <Autocomplete
                 id="combo-box-demo"
                 options={Object.keys(props.chartData)}
-                // getOptionLabel={options => option.title}
                 style={{ width: 300 }}
-                onChange={(event, value) => handleChange(value)} 
-                // onInputChange={handleChange}
+                onChange={(event, value) => handleChange(value)}
                 renderInput={(params) => (
                   <TextField {...params} label="All" variant="outlined" />
                 )}
               />
-              {/* <FormControl className={classes.formControl}>
-                <InputLabel id="demo-mutiple-name-label">Name</InputLabel>
-                <Select
-                  labelId="demo-mutiple-name-label"
-                  id="demo-mutiple-name"
-                  value={data.selectedCountry}
-                  onChange={handleChange}
-                  input={<Input />}
-                  MenuProps={MenuProps}
-                >
-                  {Object.keys(props.chartData).map((name) => (
-                    <MenuItem key={name} value={name}>
-                      {name}
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl> */}
             </div>
           </div>
         </div>
@@ -237,12 +197,13 @@ export default function Chart(props) {
         />
         {/* X Axis */}
         <VictoryAxis
+          fixLabelOverlap={true}
           label="Confirmed number / Date"
           style={{
             axis: { stroke: "#C0C5D6" },
-            axisLabel: { fontSize: 5, padding: 30 },
+            axisLabel: { fontSize: 8, padding: 30 },
             ticks: { stroke: "grey", size: 5 },
-            tickLabels: { fontSize: 3, padding: 10, angle: 90 },
+            tickLabels: { fontSize: 6, padding: 10, angle: 90 },
           }}
           axisLabelComponent={<VictoryLabel />}
         />
