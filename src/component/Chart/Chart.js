@@ -7,7 +7,7 @@ import {
   VictoryLabel,
   VictoryTheme,
   VictoryTooltip,
-  VictoryVoronoiContainer
+  VictoryVoronoiContainer,
 } from "victory";
 import "./chart.scss";
 import Button from "@material-ui/core/Button";
@@ -17,23 +17,29 @@ import Select from "@material-ui/core/Select";
 import Input from "@material-ui/core/Input";
 import MenuItem from "@material-ui/core/MenuItem";
 import { makeStyles } from "@material-ui/core/styles";
+import { Autocomplete } from '@material-ui/lab';
+import TextField from '@material-ui/core/TextField';
+;
 
-const useStyles = makeStyles(theme => ({
+
+
+
+const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
     minWidth: 120,
-    maxWidth: 300
+    maxWidth: 300,
   },
   chips: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   chip: {
-    margin: 2
+    margin: 2,
   },
   noLabel: {
-    marginTop: theme.spacing(3)
-  }
+    marginTop: theme.spacing(3),
+  },
 }));
 
 const ITEM_HEIGHT = 48;
@@ -42,11 +48,10 @@ const MenuProps = {
   PaperProps: {
     style: {
       maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
-      width: 250
-    }
-  }
+      width: 250,
+    },
+  },
 };
-
 
 function convertChartDataToGeneralChartData(chartData) {
   var generalChartData = [];
@@ -74,14 +79,15 @@ function convertChartDataToGeneralChartData(chartData) {
 
     generalChartData.push({
       x: subString,
-      y: totalConfirmedValue
+      y: totalConfirmedValue,
     });
     // if(dayIndex < dateList.length)
   }
- 
+
   return generalChartData;
 }
 function convertChartDataToSingleCountryData(countryCode, chartData) {
+  console.log("this is convert function",countryCode,chartData)
   let singleChartData = [];
 
   if (!countryCode || !chartData) {
@@ -93,17 +99,17 @@ function convertChartDataToSingleCountryData(countryCode, chartData) {
     let countryConfirmedValue = chartData[countryCode][dates[i]];
     const SubData = {
       x: dates[i].substr(5, 5),
-      y: countryConfirmedValue
+      y: countryConfirmedValue,
     };
     singleChartData.push(SubData);
   }
-
+  console.log("singlechart data",singleChartData)
   return singleChartData;
 }
 const INIT_STATE = {
   generalChartData: [],
   singleCountryChartData: [],
-  selectedCountry: null
+  selectedCountry: null,
 };
 
 export default function Chart(props) {
@@ -117,53 +123,57 @@ export default function Chart(props) {
     setdata({
       ...INIT_STATE,
       generalChartData: convertChartDataToGeneralChartData(props.chartData),
-      singleCountryChartData: []
+      singleCountryChartData: [],
     });
   }, []);
 
-  const handleChange = event => {
-    event.preventDefault();
+  const handleChange = (newValue) => {
+    console.log("here is handle change",newValue)
     setdata({
       ...data,
-      selectedCountry: event.target.value,
+      selectedCountry:  newValue,
       singleCountryChartData: convertChartDataToSingleCountryData(
-        event.target.value,
+        newValue,
         props.chartData
-      )
+      ),
     });
   };
   const setdataToGeneral = () => {
     setdata({
       ...INIT_STATE,
       generalChartData: convertChartDataToGeneralChartData(props.chartData),
-      singleCountryChartData: []
+      singleCountryChartData: [],
     });
   };
 
+  console.log(
+    "this is data",data
+  )
+// let options = Object.keys(props.chartData);
   return (
     <div className="test">
-
       <div className="filterButtons-container">
         <div className="filterButton-title">
           <div>Confirmed Cases Per Day Chart</div>
-      
         </div>
         <div className="filterButons">
-          <div className="filterAllBtn">
-            <div>show all countries</div>
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={setdataToGeneral}
-            >
-              All{" "}
-            </Button>
-          </div>
+     
 
           <div className="filterOneBtn">
             <div className="filterOneTitle">select just one country</div>
             <div>
-              <FormControl className={classes.formControl}>
+              <Autocomplete
+                id="combo-box-demo"
+                options={Object.keys(props.chartData)}
+                // getOptionLabel={options => option.title}
+                style={{ width: 300 }}
+                onChange={(event, value) => handleChange(value)} 
+                // onInputChange={handleChange}
+                renderInput={(params) => (
+                  <TextField {...params} label="All" variant="outlined" />
+                )}
+              />
+              {/* <FormControl className={classes.formControl}>
                 <InputLabel id="demo-mutiple-name-label">Name</InputLabel>
                 <Select
                   labelId="demo-mutiple-name-label"
@@ -173,16 +183,13 @@ export default function Chart(props) {
                   input={<Input />}
                   MenuProps={MenuProps}
                 >
-                  {Object.keys(props.chartData).map(name => (
-                    <MenuItem
-                      key={name}
-                      value={name}
-                    >
+                  {Object.keys(props.chartData).map((name) => (
+                    <MenuItem key={name} value={name}>
                       {name}
                     </MenuItem>
                   ))}
                 </Select>
-              </FormControl>
+              </FormControl> */}
             </div>
           </div>
         </div>
@@ -202,7 +209,7 @@ export default function Chart(props) {
               <VictoryTooltip
                 flyoutStyle={{
                   stroke: "none",
-                  fill: "white"
+                  fill: "white",
                 }}
                 style={{ fontSize: 6, fill: "black", backgroundColor: "white" }}
                 cornerRadius={2}
@@ -223,8 +230,8 @@ export default function Chart(props) {
             axis: { stroke: "#F0F3F8" },
             axisLabel: { fontSize: 5 },
             ticks: { stroke: "#C0C5D6", size: 3 },
-            tickLabels: { fontSize: 5,stroke:'989EBB' },
-            grid: { stroke: "#DFE0E9" }
+            tickLabels: { fontSize: 5, stroke: "989EBB" },
+            grid: { stroke: "#DFE0E9" },
           }}
           standalone={false}
         />
@@ -235,7 +242,7 @@ export default function Chart(props) {
             axis: { stroke: "#C0C5D6" },
             axisLabel: { fontSize: 5, padding: 30 },
             ticks: { stroke: "grey", size: 5 },
-            tickLabels: { fontSize: 3, padding: 10, angle: 90 }
+            tickLabels: { fontSize: 3, padding: 10, angle: 90 },
           }}
           axisLabelComponent={<VictoryLabel />}
         />
@@ -248,7 +255,7 @@ export default function Chart(props) {
           }
           style={{
             data: { stroke: "#6571C9", strokeWidth: 1, strokeLinecap: "round" },
-            parent: { border: "1px solid #ccc" }
+            parent: { border: "1px solid #ccc" },
           }}
         />
       </VictoryChart>

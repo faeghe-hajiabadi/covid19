@@ -10,6 +10,12 @@ import Paper from "@material-ui/core/Paper";
 import "./table.scss";
 
 const useStyles = makeStyles({
+  root: {
+    width: "100%",
+  },
+  container: {
+    // maxHeight: 440,
+  },
   table: {
     minWidth: 550,
     fontSize: 20,
@@ -37,50 +43,58 @@ export default function TableCo(props) {
 
   return (
     <div className="tableContainer">
-      <div
-        style={{
-          overflow: "auto",
-          maxHeight: "858px",
-          width: "100%",
-          textAlign: "center",
-          fontFamily: "Arial",
-          margin: "auto",
-        }}
-      >
-        <TableContainer component={Paper}>
-          <Table
-            stickyHeader
-            aria-label="sticky table"
-            className={classes.table}
+      <Paper className={classes.root}>
+        <TableContainer className={classes.container}>
+          <div
+            style={{
+              overflow: "auto",
+              maxHeight: "858px",
+              width: "100%",
+              textAlign: "center",
+              fontFamily: "Arial",
+              margin: "auto",
+            }}
           >
-            <TableHead>
-              <TableRow
-                style={{
-                  height: "35px",
-                  color: "white",
-                }}
+            <TableContainer component={Paper}>
+              <Table
+                stickyHeader
+                aria-label="sticky table"
+                className={classes.table}
               >
-                <TableCell style={{ minWidth: 170 }}>
-                  Country Name
-                </TableCell>
-                <TableCell style={{ minWidth: 170 }}  align="left">Confirmed</TableCell>
-                <TableCell style={{ minWidth: 170 }} align="left">Death</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows.map((row) => (
-                <TableRow key={row.name}>
-                  <TableCell component="th" scope="row">
-                    {row.country}
-                  </TableCell>
-                  <TableCell align="left">{row.confirmed}</TableCell>
-                  <TableCell align="left">{row.deaths}</TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+                <TableHead>
+                  <TableRow
+                    style={{
+                      height: "35px",
+                      color: "white",
+                    }}
+                  >
+                    <TableCell style={{ minWidth: 170 }}>
+                      Country Name
+                    </TableCell>
+                    <TableCell style={{ minWidth: 100 }} align="left">
+                      Confirmed
+                    </TableCell>
+                    <TableCell style={{ minWidth: 170 }} align="left">
+                      Death
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rows.map((row) => (
+                    <TableRow key={row.name}>
+                      <TableCell component="th" scope="row">
+                        {row.country}
+                      </TableCell>
+                      <TableCell align="left">{row.confirmed}</TableCell>
+                      <TableCell align="left">{row.deaths}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </div>
         </TableContainer>
-      </div>
+      </Paper>
     </div>
   );
 }
