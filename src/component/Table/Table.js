@@ -9,6 +9,8 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import "./table.scss";
 
+import { StickyTable, Row, Cell } from "react-sticky-table";
+
 const useStyles = makeStyles({
   root: {
     width: "100%",
@@ -17,8 +19,8 @@ const useStyles = makeStyles({
     // maxHeight: 440,
   },
   table: {
-    minWidth: 550,
-    fontSize: 20,
+    // minWidth: 550,
+    // fontSize: 20,
   },
   head: {
     backgroundColor: "#fff",
@@ -33,6 +35,17 @@ const useStyles = makeStyles({
 });
 
 let rows = [];
+const columns = [
+  { id: "name", label: "Country Name", minWidth: 170 },
+  { id: "code", label: "Confirmed", minWidth: 100 },
+  {
+    id: "population",
+    label: "Death",
+    minWidth: 170,
+    align: "left",
+    format: (value) => value.toLocaleString(),
+  },
+];
 
 export default function TableCo(props) {
   const classes = useStyles();
@@ -43,7 +56,29 @@ export default function TableCo(props) {
 
   return (
     <div className="tableContainer">
-      <Paper className={classes.root}>
+      <StickyTable className='stickyTable'>
+        <Row>
+          {columns.map((column) => (
+            <Cell
+              key={column.id}
+              align={column.align}
+              style={{ minWidth: column.minWidth, height:50,padding:'4%' }}
+            >
+              {column.label}
+            </Cell>
+          ))}
+        </Row>
+        {rows.map((row) => (
+          <Row key={row.name}>
+            <Cell component="th" scope="row" style={{height:40}}>
+              {row.country}
+            </Cell>
+            <Cell align="left" style={{height:40}}>{row.confirmed}</Cell>
+            <Cell align="left" style={{height:40}}>{row.deaths}</Cell>
+          </Row>
+        ))}
+      </StickyTable>
+      {/* <Paper className={classes.root}>
         <TableContainer className={classes.container}>
           <div
             style={{
@@ -63,20 +98,20 @@ export default function TableCo(props) {
               >
                 <TableHead>
                   <TableRow
-                    style={{
-                      height: "35px",
-                      color: "white",
-                    }}
+                    // style={{
+                    //   height: "35px",
+                    //   color: "white",
+                    // }}
                   >
-                    <TableCell style={{ minWidth: 170 }}>
-                      Country Name
-                    </TableCell>
-                    <TableCell style={{ minWidth: 100 }} align="left">
-                      Confirmed
-                    </TableCell>
-                    <TableCell style={{ minWidth: 170 }} align="left">
-                      Death
-                    </TableCell>
+                    {columns.map((column) => (
+                      <TableCell
+                        key={column.id}
+                        align={column.align}
+                        style={{ minWidth: column.minWidth, top: 57 }}
+                      >
+                        {column.label}
+                      </TableCell>
+                    ))}
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -94,7 +129,7 @@ export default function TableCo(props) {
             </TableContainer>
           </div>
         </TableContainer>
-      </Paper>
+      </Paper> */}
     </div>
   );
 }
