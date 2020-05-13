@@ -62,7 +62,7 @@ export default function TableCo(props) {
             <Cell
               key={column.id}
               align={column.align}
-              style={{ minWidth: column.minWidth, height:50,padding:'4%' }}
+              style={{ minWidth: column.minWidth, height:50,padding:'4%',borderRight:'2px solid #e5e5e5'}}
             >
               {column.label}
             </Cell>
@@ -73,7 +73,7 @@ export default function TableCo(props) {
             <Cell component="th" scope="row" style={{height:40}}>
               {row.country}
             </Cell>
-            <Cell align="left" style={{height:40}}>{row.confirmed}</Cell>
+            <Cell align="left" style={{height:40,borderRight:'2px solid #e5e5e5'}}>{row.confirmed}</Cell>
             <Cell align="left" style={{height:40}}>{row.deaths}</Cell>
           </Row>
         ))}

@@ -18,21 +18,16 @@ export default function TopRateItem(props) {
   const heightBoxClosed = isCollapse ? 0 : "auto";
 
   let progressClass = "";
-  let arrowSrc = '';
+  let arrowSrc = "";
   if (progress < 0) {
     progressClass = "greenProgress";
     arrowSrc = downArrow;
-
   } else if (progress > 0) {
     progressClass = "redProgress";
     arrowSrc = upArrow;
-
   } else {
     progressClass = "zeroProgress";
-
   }
-
-  
 
   return (
     <>
@@ -44,11 +39,10 @@ export default function TopRateItem(props) {
           <div className="topRateConfirmed">{item.confirmed}</div>
           <div className="topRateCountry">{item.country}</div>
           <div className={progressClass}>
-            {arrowSrc !== '' &&
-             <img width="15" height="15" src={arrowSrc}></img>
-            }
-           
-            {Math.abs(progress)}%
+            {arrowSrc !== "" && (
+              <img width="15" height="15" src={arrowSrc}></img>
+            )}
+            {""} {Math.abs(progress)}%
           </div>
         </div>
       </AnimateHeight>
@@ -59,7 +53,7 @@ export default function TopRateItem(props) {
       >
         <div className="topRateItemContainerExpand">
           <div className="topRateConfirmedExpand">{item.confirmed}</div>
-          <div className="topRateCountry">{item.country}</div>
+          <div className="topRateCountryCollapse">{item.country}</div>
           <div className="chartContainer">
             <VictoryChart
               containerComponent={<VictoryContainer responsive={true} />}
@@ -75,7 +69,7 @@ export default function TopRateItem(props) {
                     grid: "none",
                     fontSize: 10,
                     angle: 90,
-                    padding: 30,
+                    padding: 15,
                     fill: "FFFFFF",
                   },
                 }}

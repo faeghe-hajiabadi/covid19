@@ -24,7 +24,7 @@
 
 }
 .greenProgress{
-    color: green;
+    color: #61D16B;
     padding-top: 20px;
     font-size: 16px;
 }
@@ -34,7 +34,7 @@
     font-size: 16px;
 }
 .zeroProgress{
-  color: green;
+  color: #61D16B;
   padding-top: 20px;
   font-size: 16px;
   left: 0;
@@ -52,9 +52,15 @@
 
 }
 .topRateCountry{
-    color: rgba($color: #C0C3D6, $alpha: 100);
+  color: rgba($color: rgb(180, 181, 196), $alpha: 100);
     font-size: 14px;
     padding-top: 3px;
+}
+.topRateCountryCollapse{
+  color: rgba($color: rgb(227, 228, 236), $alpha: 100);
+  font-weight: 500;
+  font-size: 14px;
+  padding-top: 3px;
 }
 .topRateItemContainerExpand{
     // background-color: #6B75CA;
@@ -75,7 +81,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    padding: 34px;
+    padding: 26px;
     margin-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
@@ -91,7 +97,7 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    padding: 34px;
+    padding: 26px;
     margin-top: 0;
     border-top-left-radius: 0;
     border-top-right-radius: 0;

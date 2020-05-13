@@ -11,6 +11,7 @@
 .relatedItemParent{
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     margin: 5% 1% 0% 1%;
     width: 30%;
@@ -24,7 +25,7 @@
 .relatedItemName{
     font-size: 18px;
     font-weight: 700;
-    padding: 10% 0 2% 3%;
+    padding: 10% 0 6% 0%;
 }
 .relatedItemsDes{
     font-size: 14px;

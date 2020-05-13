@@ -7,7 +7,6 @@ import jhu from './img/jhu.png'
 export default function Related() {
   return (
     <div className="relatedParent">
-      <div>Related Websites For Read More</div>
       <div className="related-box">
         <RelatedItems
           url={

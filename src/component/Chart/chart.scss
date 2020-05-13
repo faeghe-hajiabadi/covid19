@@ -12,6 +12,14 @@
     border-radius: 20px;
     width: 60%;
 }
+@media screen 
+  and (min-device-width: 1500px) 
+  and (max-device-width: 2000px) 
+  {
+      .test{
+          width: 70%;
+      } 
+}
 
 .formControl{
     max-width: 100;
