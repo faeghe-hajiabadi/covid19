@@ -11,6 +11,7 @@
     margin-right: 10px;
     border-radius: 20px;
     width: 60%;
+    margin-left: 20px;
 }
 @media screen 
   and (min-device-width: 1500px) 
@@ -28,19 +29,17 @@
     display: flex;
     text-align: center;
     align-items: center;
-    justify-content: space-evenly;
-    flex-direction: column;
-    height: 200px;
+    justify-content: space-around;
+    height: 130px;
     background-color: white;
     border-radius: 20px;
-    margin-left: 20px;
-    margin-top: 20px;
+ 
 
 }
 .filterButton-title{
     display: flex;
-    width: 100%;
-    margin-left: 10%;
+    // width: 100%;
+    // margin-left: 0%;
     color: black;
     font-size: 20px;
     font-weight: 700;

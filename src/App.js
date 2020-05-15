@@ -9,15 +9,17 @@ import TableCo from "./component/Table/Table";
 import Related from "./component/Related/Related";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import TopRate from "./component/TopRate/TopRate";
+import UncontrolledLottie from "./component/UncontrolledLottie";
 
-
-
+import { useWindowSize } from "./component/hooks/useWindowSize";
 
 const handleClick = (e, countryCode) => {};
 
 function App() {
   const [location, setLocation] = useState();
   const [count, setCount] = useState(0);
+  const size = useWindowSize();
+
   let mapData = {};
   let chartData = {};
   let tableData = [];
@@ -34,28 +36,26 @@ function App() {
 
   if (location) {
     return (
- 
+  
       <div className="app-container">
-         <TopRate topRate={topRate} />              
-
-        <Map handleClick={handleClick} mapData={mapData} />
+        <TopRate topRate={topRate} size={size} />
+        <Map handleClick={handleClick} mapData={mapData} size={size} />
         <div className="app-endPart"></div>
-        <div className='chartAndTableParent'>
-        <Chart  chartData={chartData} topRate={topRate} />
-        <TableCo  tableData={tableData} />
+        <div className="chartAndTableParent" style={{ height: size.height }}>
+          <Chart chartData={chartData} topRate={topRate} />
+          <TableCo tableData={tableData} />
         </div>
-     
+
         <div className="app-endPart"></div>
         <Related />
         <div className="app-endPart"></div>
       </div>
-
     );
   } else {
     return (
-      <div className="loading-container">
-        <CircularProgress  size={50} />
-      </div>
+   
+        <UncontrolledLottie size={size} />
+    
     );
   }
 }

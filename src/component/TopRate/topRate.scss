@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    min-height: 480px   ;
+    min-height: 380px   ;
 }
 
 .topRateItemContainer{
@@ -57,9 +57,9 @@
     padding-top: 3px;
 }
 .topRateCountryCollapse{
-  color: rgba($color: rgb(227, 228, 236), $alpha: 100);
-  font-weight: 500;
-  font-size: 14px;
+  color: #F9F9FC;
+  font-weight: 700;
+  font-size: 16px;
   padding-top: 3px;
 }
 .topRateItemContainerExpand{

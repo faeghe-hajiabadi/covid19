@@ -1,17 +1,21 @@
 import React from "react";
 import { VectorMap } from "react-jvectormap";
 import "./map.scss";
+import { useWindowSize } from "../hooks/useWindowSize";
+
 
 export default function Map(props) {
+  const size = props.size;
+
   return (
-    <div className="map-container">
+    <div className="map-container" style={{height:size.height*0.65}}>
       <VectorMap
         map={"world_mill"}
         backgroundColor="transparent" //change it to ocean blue: #0077be
         zoomOnScroll={false}
         containerStyle={{
           width: "100%",
-          height: "560px"
+          height: "500px"
         }}
         onRegionClick={props.handleClick} //gets the country code
         containerClassName="map"

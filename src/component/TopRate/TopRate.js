@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./topRate.scss";
-
+import { useWindowSize } from "../hooks/useWindowSize";
 import TopRateItem from "./TopRateItem";
 
 export default function TopRate(props) {
@@ -11,13 +11,15 @@ export default function TopRate(props) {
   };
 
   const [hoverIndex, setHover] = useState(0);
+  const size = props.size;
+
   const topRateItem = props.topRate.map((item, index) => {
     let dates = Object.keys(item.timelines);
     let datesLenght = dates.length;
     let firstItem = item.timelines[dates[datesLenght - 2]];
     let secondItem = item.timelines[dates[datesLenght - 1]];
     let isCollapse = index === hoverIndex ? true : false;
-    let progress = Math.round(((firstItem - secondItem) / secondItem)*100);
+    let progress = Math.round(((firstItem - secondItem) / secondItem) * 100);
     data = [];
     for (let i = datesLenght - 8; i < datesLenght - 1; i++) {
       let date = dates[i];
@@ -29,12 +31,11 @@ export default function TopRate(props) {
       };
       data.push(SubData);
     }
-    let containerClassName = isCollapse? 'topRateContainerExpand':'topRateContainerCollapse';
+    let containerClassName = isCollapse
+      ? "topRateContainerExpand"
+      : "topRateContainerCollapse";
     return (
-      <div
-        className={containerClassName}
-        onMouseEnter={onhoverTrigger(index)}
-      >
+      <div className={containerClassName}  onMouseEnter={onhoverTrigger(index)}>
         <TopRateItem
           isCollapse={isCollapse}
           progress={progress}
@@ -44,5 +45,5 @@ export default function TopRate(props) {
       </div>
     );
   });
-  return <div className="topRateContainer">{topRateItem}</div>;
+  return <div style={{height:size.height*.3}} className="topRateContainer">{topRateItem}</div>;
 }

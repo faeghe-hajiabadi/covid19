@@ -137,21 +137,17 @@ export default function Chart(props) {
         <div className="filterButton-title">
           <div>Confirmed Cases Per Day Chart</div>
         </div>
-        <div className="filterButons">
-          <div className="filterOneBtn">
-            <div className="filterOneTitle">select just one country</div>
-            <div>
-              <Autocomplete
-                id="combo-box-demo"
-                options={Object.keys(props.chartData)}
-                style={{ width: 300 }}
-                onChange={(event, value) => handleChange(value)}
-                renderInput={(params) => (
-                  <TextField {...params} label="All" variant="outlined" />
-                )}
-              />
-            </div>
-          </div>
+
+        <div>
+          <Autocomplete
+            id="combo-box-demo"
+            options={Object.keys(props.chartData)}
+            style={{ width: 300 }}
+            onChange={(event, value) => handleChange(value)}
+            renderInput={(params) => (
+              <TextField {...params} label="All" variant="outlined" />
+            )}
+          />
         </div>
       </div>
       <VictoryChart
@@ -169,9 +165,9 @@ export default function Chart(props) {
               <VictoryTooltip
                 flyoutStyle={{
                   stroke: "none",
-                  fill: "white",
+                  fill: "#A1AAFF",
                 }}
-                style={{ fontSize: 6, fill: "black", backgroundColor: "white" }}
+                style={{ fontSize: 6, fill: "black", backgroundColor: "#A1AAFF" }}
                 cornerRadius={2}
                 dy={0}
                 size="6"
@@ -198,12 +194,12 @@ export default function Chart(props) {
         {/* X Axis */}
         <VictoryAxis
           fixLabelOverlap={true}
-          label="Confirmed number / Date"
+          label=""
           style={{
             axis: { stroke: "#C0C5D6" },
             axisLabel: { fontSize: 8, padding: 30 },
             ticks: { stroke: "grey", size: 5 },
-            tickLabels: { fontSize: 6, padding: 10, angle: 90 },
+            tickLabels: { fontSize: 6, padding: 20, angle: 90 },
           }}
           axisLabelComponent={<VictoryLabel />}
         />
