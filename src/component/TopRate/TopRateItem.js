@@ -29,8 +29,10 @@ export default function TopRateItem(props) {
     progressClass = "zeroProgress";
   }
 
+
   return (
     <>
+       
       <AnimateHeight
         duration={500}
         height={heightBoxClosed} // see props documentation below
@@ -59,6 +61,7 @@ export default function TopRateItem(props) {
               containerComponent={<VictoryContainer responsive={true} />}
               width={200}
               height={150}
+
             >
               {/* X Axis */}
               <VictoryAxis
@@ -75,6 +78,7 @@ export default function TopRateItem(props) {
                 }}
                 axisLabelComponent={<VictoryLabel />}
               />
+              
               <VictoryLine
                 interpolation="natural"
                 data={data}

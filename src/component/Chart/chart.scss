@@ -70,3 +70,20 @@ flex-direction: column;
     justify-content: space-between;
     align-items: center;
 }
+.autocomplete{
+    width: 300px;
+}
+@media (min-width: 340px) and (max-width: 767px) {
+  .test{
+      width: 95%;
+      margin-left: 10px;
+  }
+  .filterButton-title{
+      font-size: 12px;
+  }
+  .autocomplete{
+      width: 100px;
+      height: 50px;
+  }
+    
+    }

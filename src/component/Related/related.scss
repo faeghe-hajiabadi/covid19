@@ -30,7 +30,7 @@
 .relatedItemsDes{
     font-size: 14px;
     color: '#9297B6';
-    padding: 3% 0 2% 3%;
+    // padding: 3% 0 2% 3%;
 
 }
 .relatedItemImg{
@@ -45,3 +45,15 @@
         margin-top: 2%;
 
 }
+@media (min-width: 340px) and (max-width: 767px) {
+    .relatedItemParent{
+        height: 150px;
+        width: 40%;
+
+    }
+    .relatedParent{
+        margin-top: 0;
+        margin-left: 0;
+    }
+      
+      }

@@ -1,9 +1,42 @@
 import React, { useState } from "react";
 import "./topRate.scss";
-import { useWindowSize } from "../hooks/useWindowSize";
 import TopRateItem from "./TopRateItem";
+import Swiper from "react-id-swiper";
+// Version <= 2.3.2
+
+// Version >= 2.4.0
+import "swiper/css/swiper.css";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from "react-device-detect";
 
 export default function TopRate(props) {
+  const params = {
+    slidesPerView: 5,
+    spaceBetween: 50,
+
+    breakpoints: {
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 40
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 30
+      },
+      640: {
+        slidesPerView: 2.5,
+        spaceBetween: 20
+      },
+      320: {
+        slidesPerView: 1.5,
+        spaceBetween: 20
+      }
+    }
+  };
   let data = [];
 
   const onhoverTrigger = (index) => () => {
@@ -35,7 +68,7 @@ export default function TopRate(props) {
       ? "topRateContainerExpand"
       : "topRateContainerCollapse";
     return (
-      <div className={containerClassName}  onMouseEnter={onhoverTrigger(index)}>
+      <div className={containerClassName} onMouseEnter={onhoverTrigger(index)}>
         <TopRateItem
           isCollapse={isCollapse}
           progress={progress}
@@ -45,5 +78,17 @@ export default function TopRate(props) {
       </div>
     );
   });
-  return <div style={{height:size.height*.3}} className="topRateContainer">{topRateItem}</div>;
+  return (
+    <div style={{ height: size.height * 0.15 }} className="topRateContainer">
+      {isMobile && (
+        <Swiper {...params}>
+          <div>{topRateItem[0]}</div>
+          <div>{topRateItem[1]}</div>
+          <div>{topRateItem[2]}</div>
+          <div>{topRateItem[3]}</div>
+        </Swiper>
+      )}
+      {!isMobile && <>{topRateItem}</>}
+    </div>
+  );
 }

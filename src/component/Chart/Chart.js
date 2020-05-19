@@ -138,7 +138,7 @@ export default function Chart(props) {
           <div>Confirmed Cases Per Day Chart</div>
         </div>
 
-        <div>
+        <div className='autocomplete'>
           <Autocomplete
             id="combo-box-demo"
             options={Object.keys(props.chartData)}
@@ -155,26 +155,26 @@ export default function Chart(props) {
         containerComponent={<VictoryContainer responsive={true} />}
         animate={{ duration: 2000 }}
         width={400}
-        height={300}
+        height={250}
         containerComponent={
           <VictoryVoronoiContainer
             voronoiDimension="x"
-            labels={({ datum }) => `for day: ${datum.x}
-             confirmed number: ${datum.y}`}
+            labels={({ datum }) => `📅: ${datum.x}
+            🦠confirmed number: ${datum.y}`}
             labelComponent={
               <VictoryTooltip
                 flyoutStyle={{
                   stroke: "none",
-                  fill: "#A1AAFF",
+                  fill: "#6C75CA",
                 }}
-                style={{ fontSize: 6, fill: "black", backgroundColor: "#A1AAFF" }}
+                style={{ fontSize: 8 ,fontFamily:'Source Sans Pro', fill: "white", backgroundColor: "#A1AAFF" }}
                 cornerRadius={2}
                 dy={0}
-                size="6"
+                size="8"
                 flyoutHeight={30}
-                flyoutWidth={80}
+                flyoutWidth={120}
                 pointerWidth={10}
-                centerOffset={{ x: 25 }}
+                centerOffset={{ x: 15 }}
               />
             }
           />
@@ -199,7 +199,7 @@ export default function Chart(props) {
             axis: { stroke: "#C0C5D6" },
             axisLabel: { fontSize: 8, padding: 30 },
             ticks: { stroke: "grey", size: 5 },
-            tickLabels: { fontSize: 6, padding: 20, angle: 90 },
+            tickLabels: { fontSize: 6 , paddingTop:10, angle: 120 },
           }}
           axisLabelComponent={<VictoryLabel />}
         />

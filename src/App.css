@@ -84,10 +84,12 @@
 body{
   font-family: 'Source Sans Pro', sans-serif;
   height: 100%;
+  background-color: #F0F3F8;
   /* font-size: 14px; */
 }
 .chartAndTableParent{
   display: flex;
+  padding-top: 5%;
 
 }
 .chartParentInApp{
@@ -95,4 +97,19 @@ body{
 }
 .tableParentInApp{
   width: 30%;
+}
+.topRateAndMap{
+  margin-bottom: 20px;
+}
+.relatedApp{
+/* margin-top: 50%; */
+}
+@media (min-width: 340px) and (max-width: 767px) {
+.chartAndTableParent{
+  flex-direction: column;
+}
+.relatedApp{
+  margin-top: 50%;
+  }
+
 }

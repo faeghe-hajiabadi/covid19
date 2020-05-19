@@ -62,7 +62,7 @@ export default function TableCo(props) {
             <Cell
               key={column.id}
               align={column.align}
-              style={{ minWidth: column.minWidth, height:50,padding:'4%',borderRight:'2px solid #e5e5e5'}}
+              className='tableCellbig'
             >
               {column.label}
             </Cell>
@@ -70,66 +70,15 @@ export default function TableCo(props) {
         </Row>
         {rows.map((row) => (
           <Row key={row.name}>
-            <Cell component="th" scope="row" style={{height:40}}>
+            <Cell  component="th" scope="row" style={{height:40}}>
               {row.country}
             </Cell>
-            <Cell align="left" style={{height:40,borderRight:'2px solid #e5e5e5'}}>{row.confirmed}</Cell>
-            <Cell align="left" style={{height:40}}>{row.deaths}</Cell>
+            <Cell align="left" className='tableCellsmall'>{row.confirmed}</Cell>
+            <Cell align="left" className='tableCellsmall' style={{height:40}}>{row.deaths}</Cell>
           </Row>
         ))}
       </StickyTable>
-      {/* <Paper className={classes.root}>
-        <TableContainer className={classes.container}>
-          <div
-            style={{
-              overflow: "auto",
-              maxHeight: "858px",
-              width: "100%",
-              textAlign: "center",
-              fontFamily: "Arial",
-              margin: "auto",
-            }}
-          >
-            <TableContainer component={Paper}>
-              <Table
-                stickyHeader
-                aria-label="sticky table"
-                className={classes.table}
-              >
-                <TableHead>
-                  <TableRow
-                    // style={{
-                    //   height: "35px",
-                    //   color: "white",
-                    // }}
-                  >
-                    {columns.map((column) => (
-                      <TableCell
-                        key={column.id}
-                        align={column.align}
-                        style={{ minWidth: column.minWidth, top: 57 }}
-                      >
-                        {column.label}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {rows.map((row) => (
-                    <TableRow key={row.name}>
-                      <TableCell component="th" scope="row">
-                        {row.country}
-                      </TableCell>
-                      <TableCell align="left">{row.confirmed}</TableCell>
-                      <TableCell align="left">{row.deaths}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </div>
-        </TableContainer>
-      </Paper> */}
+     
     </div>
   );
 }
