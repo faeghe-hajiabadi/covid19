@@ -89,7 +89,7 @@ body{
 }
 .chartAndTableParent{
   display: flex;
-  padding-top: 5%;
+  /* padding-top: 5%; */
 
 }
 .chartParentInApp{
@@ -102,6 +102,11 @@ body{
   margin-bottom: 20px;
 }
 .relatedApp{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  flex-direction: column;
 /* margin-top: 50%; */
 }
 @media (min-width: 340px) and (max-width: 767px) {

@@ -9,8 +9,8 @@ export default class GraphTooltip extends React.Component {
 
     const { datum, x, y } = this.props;
     return (
-      <g style={{ pointerEvents: "none" }} className="graph-tooltip">
-        <foreignObject x={x} y={y} width="100" height="100">
+      <g style={{ pointerEvents: "none"}} className="graph-tooltip">
+        <foreignObject x={x-105} y={y-45} width="100" height="100">
           <div
             style={{
               backgroundColor: "#F0F3F8",
@@ -18,6 +18,7 @@ export default class GraphTooltip extends React.Component {
               color: "black",
               fontSize: "10px",
               fontFamily: "Source Sans Pro",
+        
             }}
             className="graph-tooltip"
           >
