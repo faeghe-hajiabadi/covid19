@@ -1,6 +1,7 @@
 .relatedParent{
     margin-top: 5%;
     margin-left: 5%;
+    display: flex;
 }
 .related-box{
     display: flex;
@@ -9,6 +10,20 @@
 
 
 .relatedItemParent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 5% 1% 0% 1%;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
+    height: 250px;
+    color: "#34374C";
+    color: black;
+    text-decoration: none;
+}
+.relatedItem{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -30,6 +45,7 @@
 .relatedItemsDes{
     font-size: 14px;
     color: '#9297B6';
+    text-align: center;
     // padding: 3% 0 2% 3%;
 
 }
@@ -54,6 +70,7 @@
     .relatedParent{
         margin-top: 0;
         margin-left: 0;
+        display: flex;
     }
       
       }

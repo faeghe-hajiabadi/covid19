@@ -107,6 +107,7 @@ body{
 @media (min-width: 340px) and (max-width: 767px) {
 .chartAndTableParent{
   flex-direction: column;
+  padding-top: 1%;
 }
 .relatedApp{
   margin-top: 50%;

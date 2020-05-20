@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import AnimateHeight from "react-animate-height";
 import "./related.scss";
 
 export default function RelatedItems(props) {
-  const { url, description, imgSrc } = props;
-  const [imgHover, setImgHover] = useState(false);
+  const { url, description, imgSrc,imgHover } = props;
   const heightBox = imgHover ? "auto" : 0;
 
   return (
@@ -15,8 +14,7 @@ export default function RelatedItems(props) {
         src={imgSrc}
         className="relatedItemImg"
         alt="world health organization"
-        onMouseOver={() => setImgHover(true)}
-        onMouseLeave={() => setImgHover(false)}
+   
       ></img>
       <AnimateHeight
         duration={500}

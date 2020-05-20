@@ -13,6 +13,9 @@ import "./chart.scss";
 import { makeStyles } from "@material-ui/core/styles";
 import { Autocomplete } from "@material-ui/lab";
 import TextField from "@material-ui/core/TextField";
+import GraphTooltip from './GraphTooltip'
+
+
 const useStyles = makeStyles((theme) => ({
   formControl: {
     margin: theme.spacing(1),
@@ -159,24 +162,26 @@ export default function Chart(props) {
         containerComponent={
           <VictoryVoronoiContainer
             voronoiDimension="x"
-            labels={({ datum }) => `📅: ${datum.x}
-            🦠confirmed number: ${datum.y}`}
-            labelComponent={
-              <VictoryTooltip
-                flyoutStyle={{
-                  stroke: "none",
-                  fill: "#6C75CA",
-                }}
-                style={{ fontSize: 8 ,fontFamily:'Source Sans Pro', fill: "white", backgroundColor: "#A1AAFF" }}
-                cornerRadius={2}
-                dy={0}
-                size="8"
-                flyoutHeight={30}
-                flyoutWidth={120}
-                pointerWidth={10}
-                centerOffset={{ x: 15 }}
-              />
-            }
+            labels={() => ''}
+            labelComponent={<VictoryTooltip flyoutComponent={<GraphTooltip/>}/>}
+            // labels={({ datum }) => ` ${datum.x}
+            //  ${datum.y}`}
+            // labelComponent={
+            //   <VictoryTooltip
+            //     flyoutStyle={{
+            //       stroke: "none",
+            //       fill: "#6C75CA",
+            //     }}
+            //     style={{ fontSize: 8 ,fontFamily:'Source Sans Pro', fill: "white", backgroundColor: "#A1AAFF" }}
+            //     cornerRadius={2}
+            //     dy={0}
+            //     size="8"
+            //     flyoutHeight={30}
+            //     flyoutWidth={120}
+            //     pointerWidth={10}
+            //     centerOffset={{ x: 15 }}
+            //   />
+            // }
           />
         }
       >
