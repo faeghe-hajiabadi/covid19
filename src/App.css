@@ -106,7 +106,7 @@ body{
   align-items: center;
   justify-content: center;
   height: 100%;
-  flex-direction: column;
+  /* flex-direction: column; */
 /* margin-top: 50%; */
 }
 @media (min-width: 340px) and (max-width: 767px) {

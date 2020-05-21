@@ -1,6 +1,7 @@
 .relatedParent{
   
-  width: 40%;
+  width: 100%;
+  display: flex;
   padding-top:10px ;
 }
 .related-box{
@@ -23,18 +24,10 @@
     text-decoration: none;
 }
 .relatedItem{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+
+    // flex-direction: column;
     margin: 5% 0% 0% 1%;
-    // width: 30%;
-    background-color: white;
-    border-radius: 20px;
-    height: 250px;
-    color: "#34374C";
-    color: black;
-    text-decoration: none;
+    width: 100%;
 }
 .relatedItemName{
     font-size: 18px;
