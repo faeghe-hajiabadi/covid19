@@ -17,10 +17,27 @@ Here is how the main functionality looks like:
 
 ## Data source and tech-stack
 
-The dashboard is using [COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19) as a data source.
+The Project is using [Coronavirus Tracker](https://coronavirus-tracker-api.herokuapp.com/) as a data source.
 
-Front-end wise I've tried to make it as simple as possible, therefore the dashboard is using a pure [React.js](https://reactjs.org/) (without `JSX` transpiler or `CreateReactApp` starter). To draw the chart I've used [Charts.js](https://www.chartjs.org/).
+My project starter is create-react-app . In map part I've used [react-jvectormap](https://www.npmjs.com/package/react-jvectormap)
 
-## Terms of Use
 
-This GitHub [repository](https://github.com/trekhleb/covid-19) and its [Dashboard](https://trekhleb.github.io/covid-19/) relies upon publicly available data from [COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19) as its main data source. The author of this repository hereby disclaims any and all representations and warranties with respect to the [Website](https://trekhleb.github.io/covid-19/), including accuracy, fitness for use, and merchantability. Reliance on the [Website](https://trekhleb.github.io/covid-19/) for medical guidance or use of the Website in commerce is strictly prohibited.
+ To draw the chart I've used [Victory](https://formidable.com/open-source/victory/docs/victory-chart/).
+
+## Installing <project_name>
+
+To install <CovidTracker>, follow these steps:
+
+```
+<npm install>
+```
+
+## Running <Covid19Tracker>
+
+To use <Covid19Tracker>:
+
+```
+<npm start>
+```
+
+
