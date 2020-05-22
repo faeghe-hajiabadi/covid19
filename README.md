@@ -1,4 +1,4 @@
-# Coronavirus (COVID-19) Tracker
+# Covid19 Tracker
 
 📈 [**Coronavirus Tracker **](https://haji-covid19.netlify.app/) shows the data of Сoronavirus distribution per country and in all over the world.
 
@@ -28,17 +28,17 @@ My project starter is create-react-app . In map part I've used [react-jvectormap
 
  To draw the chart I've used [Victory](https://formidable.com/open-source/victory/docs/victory-chart/).
 
-## Installing <project_name>
+## Installing <Covid19 Tracker>
 
-To install <CovidTracker>, follow these steps:
+To install <Covid19 Tracker>, follow this step:
 
 ```
 npm install
 ```
 
-## Running <Covid19Tracker>
+## Running <Covid19 Tracker>
 
-To use <Covid19Tracker>:
+To use <Covid19 Tracker>:
 
 ```
 npm start
