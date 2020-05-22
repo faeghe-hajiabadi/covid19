@@ -6,9 +6,9 @@
 ### Main Functionality
 
 This project has 3 main parts: 
-1- confirmed cases in every country that has shown on map with gradiant of red color.
-2-confirmed cases in all the world and in every country on chart that can show you the speed of infection. 
-3-confirmed cases and death in every country on table.
+1- 🗺️confirmed cases in every country that has shown on map with gradiant of red color.
+2-📈confirmed cases in all the world and in every country on chart that can show you the speed of infection. 
+3-📋confirmed cases and death in every country on table.
 also there is related links that you can find reliable websites to read more about covid19.
 
 Here is how the main functionality looks like:
@@ -29,7 +29,7 @@ My project starter is create-react-app . In map part I've used [react-jvectormap
 To install <CovidTracker>, follow these steps:
 
 ```
-<npm install>
+npm install
 ```
 
 ## Running <Covid19Tracker>
@@ -37,7 +37,7 @@ To install <CovidTracker>, follow these steps:
 To use <Covid19Tracker>:
 
 ```
-<npm start>
+npm start
 ```
 
 
