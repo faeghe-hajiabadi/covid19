@@ -1,4 +1,14 @@
+
+
+
 # Covid19 Tracker
+[![Only 17.3 MB](https://img.shields.io/github/repo-size/faeghe-hajiabadi/covid19)](https://img.shields.io/github/repo-size/faeghe-hajiabadi/covid19)
+
+
+[![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://GitHub.com/)
+
+
+
 
 📈 [**Coronavirus Tracker **](https://haji-covid19.netlify.app/) shows the data of Сoronavirus distribution per country and in all over the world.
 
