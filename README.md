@@ -1,68 +1,57 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `yarn start`
+# Covid19 Tracker
+[![Only 17.3 MB](https://img.shields.io/github/repo-size/faeghe-hajiabadi/covid19)](https://img.shields.io/github/repo-size/faeghe-hajiabadi/covid19)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[![ForTheBadge uses-git](http://ForTheBadge.com/images/badges/uses-git.svg)](https://GitHub.com/)
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📈 [**Coronavirus Tracker **](https://haji-covid19.netlify.app/) shows the data of Сoronavirus distribution per country and in all over the world.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Main Functionality
 
-### `yarn eject`
+This project has 3 main parts: 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1- 🗺️confirmed cases in every country that has shown on map with gradiant of red color.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2-📈confirmed cases in all the world and in every country on chart that can show you the speed of infection. 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3-📋confirmed cases and death in every country on table.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+also there is related links that you can find reliable websites to read more about covid19.
 
-## Learn More
+Here is how the main functionality looks like:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+![COVID-19 Dashboard Demo](./covid.gif)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Data source and tech-stack
 
-### Code Splitting
+The Project is using [Coronavirus Tracker](https://coronavirus-tracker-api.herokuapp.com/) as a data source.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+My project starter is create-react-app . In map part I've used [react-jvectormap](https://www.npmjs.com/package/react-jvectormap)
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+ To draw the chart I've used [Victory](https://formidable.com/open-source/victory/docs/victory-chart/).
 
-### Making a Progressive Web App
+## Installing <Covid19 Tracker>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+To install <Covid19 Tracker>, follow this step:
 
-### Advanced Configuration
+```
+npm install
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+## Running <Covid19 Tracker>
 
-### Deployment
+To use <Covid19 Tracker>:
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```
+npm start
+```
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
