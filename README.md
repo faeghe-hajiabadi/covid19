@@ -5,7 +5,9 @@
 
 
 
+[![License: MIT](https://img.shields.io/github/license/faeghe-hajiabadi/covid19?style=flat-square)](https://opensource.org/licenses/MIT)
 
+[![last-commit](https://img.shields.io/github/last-commit/faeghe-hajiabadi/covid19)](https://img.shields.io/github/last-commit/faeghe-hajiabadi/covid19)
 
 📈 [**Coronavirus Tracker **](https://haji-covid19.netlify.app/) shows the data of Сoronavirus distribution per country and in all over the world.
 
